@@ -101,8 +101,8 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 
 %files
 %doc AUTHORS COPYING NEWS README TODO
-%{_bindir}/grl-inspect
-%{_bindir}/grilo-test-ui
+%{_bindir}/grl-inspect-%{api}
+%{_bindir}/grilo-test-ui-%{api}
 %{_libdir}/grilo-%{api}
 %{_datadir}/grilo-%{api}/plugins
 %{_mandir}/man1/grl-inspect.1.*
