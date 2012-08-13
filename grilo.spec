@@ -126,5 +126,5 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/*.gir
-%{_datadir}/vala-*/vapi/*
+%{_datadir}/vala/vapi/*
 
