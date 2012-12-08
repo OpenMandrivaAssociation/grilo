@@ -1,5 +1,5 @@
-%define api	0.1
-%define major	0
+%define api	0.2
+%define major	1
 %define libname	%mklibname %{name} %{api} %{major}
 %define libgrlnet	%mklibname grlnet %{api} %{major}
 %define girname %mklibname %{name}-gir %{api}
@@ -10,12 +10,12 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.2.0
+Version:	0.2.3
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
-Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -101,8 +101,8 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 
 %files
 %doc AUTHORS COPYING NEWS README TODO
-%{_bindir}/grl-inspect-%{api}
-%{_bindir}/grilo-test-ui-%{api}
+%{_bindir}/grl-inspect*
+%{_bindir}/grilo-test-ui*
 %{_libdir}/grilo-%{api}
 %{_datadir}/grilo-%{api}/plugins
 %{_mandir}/man1/grl-inspect.1.*
@@ -111,7 +111,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/libgrilo-%{api}.so.%{major}*
 
 %files -n %{libgrlnet}
-%{_libdir}/libgrlnet-%{api}.so.%{major}*
+%{_libdir}/libgrlnet-%{api}.so.*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Grl-%{api}.typelib
@@ -127,4 +127,17 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/*.gir
 %{_datadir}/vala/vapi/*
+
+
+
+%changelog
+* Tue Nov 13 2012 Arkady L. Shane <ashejn@rosalab.ru> 0.2.3-1
+- update to 0.2.3
+
+* Thu Oct  3 2012 Arkady L. Shane <ashejn@rosalab.ru> 0.2.0-1
+- update to 0.2.0
+
+* Mon Mar 12 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.1.18-1
++ Revision: 784298
+- imported package grilo
 
