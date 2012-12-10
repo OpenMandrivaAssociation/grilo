@@ -2,7 +2,7 @@
 
 %define api	0.2
 %define major	1
-%define major_grlnet	1
+%define major_grlnet	0
 %define libname	%mklibname %{name} %{api} %{major}
 %define libgrlnet	%mklibname grlnet %{api} %{major_grlnet}
 %define girname %mklibname %{name}-gir %{api}
