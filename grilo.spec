@@ -2,8 +2,9 @@
 
 %define api	0.2
 %define major	1
+%define major_grlnet	1
 %define libname	%mklibname %{name} %{api} %{major}
-%define libgrlnet	%mklibname grlnet %{api} %{major}
+%define libgrlnet	%mklibname grlnet %{api} %{major_grlnet}
 %define girname %mklibname %{name}-gir %{api}
 %define girgrlnet %mklibname grlnet-gir %{api}
 %define devname	%mklibname -d %{name}
@@ -50,7 +51,6 @@ This package contains the grlnet library for %{name}.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -58,7 +58,6 @@ GObject Introspection interface description for %{name}.
 %package -n %{girgrlnet}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-Requires:	%{libgrlnet} = %{version}-%{release}
 
 %description -n %{girgrlnet}
 GObject Introspection interface description for %{name}.
@@ -68,6 +67,8 @@ Summary:	Libraries/include files for Grilo framework
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libgrlnet} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
+Requires:	%{girgrlnet = %{version}-%{release}}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
@@ -102,8 +103,8 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 
 %files
 %doc AUTHORS COPYING NEWS README TODO
-%{_bindir}/grl-inspect*
-%{_bindir}/grilo-test-ui*
+%{_bindir}/grl-inspect-%{api}
+%{_bindir}/grilo-test-ui-%{api}
 %{_libdir}/grilo-%{api}
 %{_datadir}/grilo-%{api}/plugins
 %{_mandir}/man1/grl-inspect.1.*
@@ -112,7 +113,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/libgrilo-%{api}.so.%{major}*
 
 %files -n %{libgrlnet}
-%{_libdir}/libgrlnet-%{api}.so.%{major}*
+%{_libdir}/libgrlnet-%{api}.so.%{major_grlnet}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Grl-%{api}.typelib
