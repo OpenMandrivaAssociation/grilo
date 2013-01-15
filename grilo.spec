@@ -18,6 +18,7 @@ Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		grilo-0.2.4-automake-1.13.patch
 
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -80,6 +81,7 @@ general and API documentation.
 
 %prep
 %setup -q
+%apply_patches
 autoreconf -fi
 
 %build

@@ -1,0 +1,11 @@
+--- grilo-0.2.4/configure.ac.bero	2013-01-15 22:27:53.394252082 +0100
++++ grilo-0.2.4/configure.ac	2013-01-15 22:28:04.648116752 +0100
+@@ -23,7 +23,7 @@ AM_INIT_AUTOMAKE([foreign])
+ AC_CONFIG_MACRO_DIR([m4])
+ AC_CONFIG_SRCDIR([src])
+ 
+-AM_CONFIG_HEADER(src/config.h)
++AC_CONFIG_HEADERS([src/config.h])
+ 
+ AC_PROG_CC
+ AC_PROG_INSTALL
