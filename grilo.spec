@@ -12,13 +12,12 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.2.4
+Version:	0.2.6
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		grilo-0.2.4-automake-1.13.patch
 
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -103,7 +102,9 @@ mkdir -p %{buildroot}%{_libdir}/grilo-%{api} %{buildroot}%{_datadir}/grilo-%{api
 # Remove files that will not be packaged
 rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 
-%files
+%find_lang %{name} || touch %{name}.lang
+
+%files -f %{name}.lang
 %doc AUTHORS COPYING NEWS README TODO
 %{_bindir}/grl-inspect-%{api}
 %{_bindir}/grilo-test-ui-%{api}
