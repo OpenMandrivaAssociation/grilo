@@ -1,5 +1,6 @@
 removed_sources:
   grilo-0.2.4.tar.xz: 1fa94dd3fca4900178b6f5b891679e4a56006542
   grilo-0.2.6.tar.xz: 31d100d903f85c694a5c360609f67456c9045e3a
-sources:
   grilo-0.2.9.tar.xz: 833a345655cc34d35349ddd3b313b912a9ca7586
+sources:
+  grilo-0.2.11.tar.xz: d8d4211f5e4aadd7ff39a4c48adff67db0ebcd61

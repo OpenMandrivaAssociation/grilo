@@ -12,8 +12,8 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.2.9
-Release:	3
+Version:	0.2.11
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
@@ -90,7 +90,8 @@ autoreconf -fi
 	--enable-gtk-doc \
 	--enable-introspection \
 	--enable-grl-net \
-	--disable-tests
+	--disable-tests \
+	--enable-compile-warnings=no
 
 %make
 
@@ -107,6 +108,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %files -f %{name}.lang
 %doc AUTHORS COPYING NEWS README TODO
 %{_bindir}/grl-inspect-%{api}
+%{_bindir}/grl-launch-%{api}
 %{_bindir}/grilo-test-ui-%{api}
 %{_libdir}/grilo-%{api}
 %{_datadir}/grilo-%{api}/plugins
