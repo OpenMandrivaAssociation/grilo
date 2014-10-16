@@ -3,17 +3,20 @@
 %define api	0.2
 %define major	1
 %define major_grlnet	0
+%define major_grlpls	0
 %define libname	%mklibname %{name} %{api} %{major}
 %define libgrlnet	%mklibname grlnet %{api} %{major_grlnet}
+%define libgrlpls	%mklibname grlpls %{api} %{major_grlpls}
 %define girname %mklibname %{name}-gir %{api}
 %define girgrlnet %mklibname grlnet-gir %{api}
+%define girgrlpls %mklibname grlpls-gir %{api}
 %define devname	%mklibname -d %{name}
 
 
 Summary:	Content discovery framework
 Name:		grilo
 Version:	0.2.11
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
@@ -28,6 +31,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(totem-plparser)
 
 %description
 Grilo is a framework that provides access to different sources of
@@ -48,6 +52,13 @@ Group:		System/Libraries
 %description -n %{libgrlnet}
 This package contains the grlnet library for %{name}.
 
+%package -n %{libgrlpls}
+Summary:        Libraries files for Grilo framework
+Group:          System/Libraries
+
+%description -n %{libgrlpls}
+This package contains the grlnet library for %{name}.
+
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
@@ -62,13 +73,22 @@ Group:		System/Libraries
 %description -n %{girgrlnet}
 GObject Introspection interface description for %{name}.
 
+%package -n %{girgrlpls}
+Summary:        GObject Introspection interface description for %{name}
+Group:          System/Libraries
+
+%description -n %{girgrlpls}
+GObject Introspection interface description for %{name}.
+
 %package -n %{devname}
 Summary:	Libraries/include files for Grilo framework
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libgrlnet} = %{version}-%{release}
+Requires:       %{libgrlpls} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
-Requires:	%{girgrlnet = %{version}-%{release}}
+Requires:	%{girgrlnet} = %{version}-%{release}
+Requires:       %{girgrlpls} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
@@ -81,11 +101,9 @@ general and API documentation.
 %prep
 %setup -q
 %apply_patches
-autoreconf -fi
 
 %build
-%configure2_5x \
-	--disable-static \
+%configure \
 	--enable-vala \
 	--enable-gtk-doc \
 	--enable-introspection \
@@ -120,11 +138,17 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %files -n %{libgrlnet}
 %{_libdir}/libgrlnet-%{api}.so.%{major_grlnet}*
 
+%files -n %{libgrlpls}
+%{_libdir}/libgrlpls-%{api}.so.%{major_grlnet}*
+
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Grl-%{api}.typelib
 
 %files -n %{girgrlnet}
 %{_libdir}/girepository-1.0/GrlNet-%{api}.typelib
+
+%files -n %{girgrlpls}
+%{_libdir}/girepository-1.0/GrlPls-%{api}.typelib
 
 %files -n %{devname}
 %doc AUTHORS COPYING NEWS README TODO
