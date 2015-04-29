@@ -130,7 +130,9 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_bindir}/grilo-test-ui-%{api}
 %{_libdir}/grilo-%{api}
 %{_datadir}/grilo-%{api}/plugins
-%{_mandir}/man1/grl-inspect.1.*
+%{_mandir}/man1/grl-inspect-%{api}.1.*
+%{_mandir}/man1/grl-launch-%{api}.1.*
+%{_mandir}/man1/grilo-test-ui-%{api}.1.*
 
 %files -n %{libname}
 %{_libdir}/libgrilo-%{api}.so.%{major}*
