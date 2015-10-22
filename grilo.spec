@@ -1,4 +1,5 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define api	0.2
 %define major	1
@@ -15,8 +16,8 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	 0.2.14
-Release:	4
+Version:	0.2.14
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
