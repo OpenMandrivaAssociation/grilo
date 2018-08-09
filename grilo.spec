@@ -1,7 +1,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api	0.2
+%define api	0.3
 %define major	1
 %define major_grlnet	0
 %define major_grlpls	0
@@ -16,7 +16,7 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.2.14
+Version:	0.3.6
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
@@ -136,7 +136,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_mandir}/man1/grilo-test-ui-%{api}.1.*
 
 %files -n %{libname}
-%{_libdir}/libgrilo-%{api}.so.%{major}*
+%{_libdir}/libgrilo-%{api}*
 
 %files -n %{libgrlnet}
 %{_libdir}/libgrlnet-%{api}.so.%{major_grlnet}*
