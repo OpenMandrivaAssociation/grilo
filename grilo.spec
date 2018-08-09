@@ -136,7 +136,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_mandir}/man1/grilo-test-ui-%{api}.1.*
 
 %files -n %{libname}
-%{_libdir}/libgrilo-%{api}.so.%{major}*
+%{_libdir}/libgrilo-%{api}*
 
 %files -n %{libgrlnet}
 %{_libdir}/libgrlnet-%{api}.so.%{major_grlnet}*
