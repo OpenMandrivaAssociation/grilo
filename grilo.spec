@@ -120,7 +120,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %find_lang %{name} || touch %{name}.lang
 
 %files -f %{name}.lang
-%doc AUTHORS COPYING NEWS README TODO
+%doc AUTHORS COPYING NEWS README.md TODO
 %{_bindir}/grl-inspect-%{api}
 %{_bindir}/grl-launch-%{api}
 %{_bindir}/grilo-test-ui-%{api}
