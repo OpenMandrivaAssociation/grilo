@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(totem-plparser)
+BuildRequires:  meson
 
 %description
 Grilo is a framework that provides access to different sources of
@@ -104,18 +105,12 @@ general and API documentation.
 %apply_patches
 
 %build
-%configure \
-	--enable-vala \
-	--enable-gtk-doc \
-	--enable-introspection \
-	--enable-grl-net \
-	--disable-tests \
-	--enable-compile-warnings=no
+%meson -Denable-gtk-doc=true
+%meson_build
 
-%make
 
 %install
-%makeinstall_std
+%meson_install
 
 mkdir -p %{buildroot}%{_libdir}/grilo-%{api} %{buildroot}%{_datadir}/grilo-%{api}/plugins
 
