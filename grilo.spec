@@ -16,8 +16,8 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.3.6
-Release:	3
+Version:	0.3.7
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/Grilo
@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(totem-plparser)
+BuildRequires:  meson
 
 %description
 Grilo is a framework that provides access to different sources of
@@ -104,18 +105,12 @@ general and API documentation.
 %apply_patches
 
 %build
-%configure \
-	--enable-vala \
-	--enable-gtk-doc \
-	--enable-introspection \
-	--enable-grl-net \
-	--disable-tests \
-	--enable-compile-warnings=no
+%meson -Denable-gtk-doc=true
+%meson_build
 
-%make
 
 %install
-%makeinstall_std
+%meson_install
 
 mkdir -p %{buildroot}%{_libdir}/grilo-%{api} %{buildroot}%{_datadir}/grilo-%{api}/plugins
 
@@ -125,7 +120,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %find_lang %{name} || touch %{name}.lang
 
 %files -f %{name}.lang
-%doc AUTHORS COPYING NEWS README TODO
+%doc AUTHORS COPYING NEWS README.md TODO
 %{_bindir}/grl-inspect-%{api}
 %{_bindir}/grl-launch-%{api}
 %{_bindir}/grilo-test-ui-%{api}
@@ -154,7 +149,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/girepository-1.0/GrlPls-%{api}.typelib
 
 %files -n %{devname}
-%doc AUTHORS COPYING NEWS README TODO
+%doc AUTHORS COPYING NEWS README.md TODO
 %doc %{_datadir}/gtk-doc/html/%{name}
 %{_includedir}/%{name}-%{api}
 %{_libdir}/*.so
