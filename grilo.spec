@@ -149,7 +149,7 @@ rm -f %{buildroot}%{_bindir}/grilo-simple-playlist
 %{_libdir}/girepository-1.0/GrlPls-%{api}.typelib
 
 %files -n %{devname}
-%doc AUTHORS COPYING NEWS README TODO
+%doc AUTHORS COPYING NEWS README.md TODO
 %doc %{_datadir}/gtk-doc/html/%{name}
 %{_includedir}/%{name}-%{api}
 %{_libdir}/*.so
