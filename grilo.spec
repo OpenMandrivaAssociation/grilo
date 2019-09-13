@@ -16,7 +16,7 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.3.9
+Version:	0.3.10
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
