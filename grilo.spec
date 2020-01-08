@@ -16,7 +16,7 @@
 
 Summary:	Content discovery framework
 Name:		grilo
-Version:	0.3.10
+Version:	0.3.11
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
@@ -102,7 +102,7 @@ general and API documentation.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %meson -Denable-gtk-doc=true
