@@ -17,7 +17,7 @@
 Summary:	Content discovery framework
 Name:		grilo
 Version:	0.3.16
-Release:	3
+Release:	4
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		https://live.gnome.org/Grilo
