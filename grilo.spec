@@ -17,7 +17,7 @@
 Summary:	Content discovery framework
 Name:		grilo
 Version:	0.3.19
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		https://live.gnome.org/Grilo
@@ -31,7 +31,7 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-3.0)
-BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(totem-plparser)
 BuildRequires:  meson
 
